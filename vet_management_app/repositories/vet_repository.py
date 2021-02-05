@@ -10,8 +10,8 @@ def save_new_vet(vet):
     
 def select_vet(id):
     sql = "SELECT * FROM vets WHERE id=%s"
-    values = [id]
-    result = run_sql(sql, values)
+    value = [id]
+    result = run_sql(sql, value)[0]
     if result is not None:
         vet = Vet(result["name"], result["id"])
         return vet
@@ -24,3 +24,7 @@ def select_all_vets():
         vets.append(vet)
     return vets
 
+def update_vet(vet):
+    sql = "UPDATE vets (name) = (%s) WHERE id =%s"
+    values = [vet.name, vet.id]
+    run_sql(sql, values)
