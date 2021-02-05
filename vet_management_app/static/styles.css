@@ -1,0 +1,49 @@
+body{
+    background-color: bisque;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#main-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#main-header > nav > ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    text-decoration: none;
+}
+
+#main-header > nav > ul >li{
+    margin: 10px;
+    background-color: red;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+#main-header > nav > ul >li{
+    text-decoration: none;
+    color: purple;
+}
+
+.button-new {
+    background-color: green;
+    
+}
+
+.clickable-button{
+    background-color: pink;
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    border-radius: 15px;
+}
+
+.button-new > a{
+    text-decoration: none;
+}
+
+.clickable-button >a{
+    text-decoration: none;
+}
