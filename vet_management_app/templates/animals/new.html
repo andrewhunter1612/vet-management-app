@@ -13,7 +13,7 @@
         <label for="treatment_notes">Enter treatment notes: </label>
         <input type="text" name="treatment_notes" id="treatment_notes"> 
         
-        <label for="vet"></label>
+        <label for="vet">Select vet: </label>
         <select name="vet_id" id="vet">
             {% for vet in vets %}
                 <option value="{{vet.id}}">
@@ -22,7 +22,7 @@
             {% endfor %}
         </select>
 
-        <label for="owner"></label>
+        <label for="owner">Select owner: </label>
         <select name="owner_id" id="owner">
             {% for owner in owners %}
                 <option value="{{owner.id}}">

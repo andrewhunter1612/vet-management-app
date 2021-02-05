@@ -26,11 +26,8 @@ def add_new_animal():
     dob = request.form["dob"]
     animal_type = request.form["animal_type"]
     treatment_notes = request.form["treatment_notes"]
-    print(request.form["owner_id"])
-    print(request.form["vet_id"])
     owner = owner_repository.select_owner(request.form["owner_id"])
     vet = vet_repository.select_vet(request.form["vet_id"])
-
     new_animal = Animal(name, dob, animal_type, owner, treatment_notes, vet)
     animal_repository.save_new_animal(new_animal)
     return redirect('/animals')

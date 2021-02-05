@@ -3,18 +3,22 @@
 {% block content %}
 
 <header>
-    <h2>{{owner.name}}</h2>
 </header>
 <main>
     <section>
-        <!-- list of animals -->
+        {% for owner in owners %}
+            <p>{{owner.id}}</p>
+            <p>{{owner.name}}</p>
+            <hr>
+        {% endfor %}    
+
     </section>
     <section>
         <!-- more info on animal selected -->
     </section>
 </main>
 <footer>
-    <button class="button_new"><a href="/owners/new">Add new animal</a></button>
+    <button class="button_new"><a href="/owners/new">Add new owner</a></button>
 </footer>
     
 {% endblock %}

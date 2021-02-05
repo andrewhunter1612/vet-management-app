@@ -13,7 +13,6 @@ def save_new_owner(owner):
 def select_owner(id):
     sql = "SELECT * FROM owners WHERE id=%s"
     value = [id]
-    print(value)
     result = run_sql(sql, value)[0]
     if result is not None:
         owner = Owner(result["name"], result["phone_number"], result["address"], result["id"])

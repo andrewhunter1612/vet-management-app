@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>new vet page</h1>
+    <h1>new owner page</h1>
 
     <form action="/owners" method="POST">
-        <label for="name">Enter vet name</label>
+        <label for="name">Enter owner name</label>
         <input type="text" name="name" id="name">
         <br>
-        <input type="submit" value="Add new vet">
+
+        <label for="phone">Enter owner phone number</label>
+        <input type="text" name="phone" id="phone">
+        <br>
+
+        <label for="address">Enter owner address</label>
+        <input type="text" name="address" id="address">
+        <br>
+
+        <input type="submit" value="Add new owner">
     </form>
 
 {% endblock %}

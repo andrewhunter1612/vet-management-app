@@ -20,7 +20,7 @@ CREATE TABLE animals(
     date_of_birth VARCHAR(255) NOT NULL, 
     animal_type VARCHAR(255) NOT NULL, 
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
-    vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
-    treatment_notes TEXT
+    treatment_notes TEXT,
+    vet_id INT REFERENCES vets(id) ON DELETE CASCADE
 );
 

@@ -4,12 +4,13 @@
 <h3>this is the animal page</h3>
 <section>
     {% for animal in animals %}
-    <p>asdfdas</p>
         <section>
+            <p>{{animal.id}}</p>
             <p>{{animal.name}}</p>
             <p>{{animal.date_of_birth}}</p>
             <p>{{animal.animal_type}}</p>
             <p>{{animal.treatment_notes}}</p>
+            <hr>
         </section>
     {% endfor %}
 </section>
