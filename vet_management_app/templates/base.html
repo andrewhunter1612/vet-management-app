@@ -7,13 +7,20 @@
 </head>
 <body>
     <header>
-        
+        <h1>Vet manager</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/vets">Vets</a></li>
+                <li><a href="/animals">Animals</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-
+        {% block content %}{% endblock  %}
     </main>
     <footer>
-
+        &#169 Andrew Hunter 2021
     </footer>
     
 </body>
