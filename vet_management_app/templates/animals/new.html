@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/animals", method="POST">
+        <label for="name">Animal name: </label>
+        <input type="text" name="name" id="name">
+
+        <label for="dob">Enter date of birth: </label>
+        <input type="text" name="dob" id="dob">
+
+        <label for="animal_type">Enter animal type: </label>
+        <input type="text" name="animal_type" id="animal_type">
+
+        <label for="treatment_notes">Enter treatment notes: </label>
+        <input type="text" name="treatment_notes" id="treatment_notes"> 
+        
+        <label for="vet"></label>
+        <select name="vet_id" id="vet">
+            {% for vet in vets %}
+                <option value="{{vet.id}}">
+                    {{vet.name}}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="owner"></label>
+        <select name="owner_id" id="owner">
+            {% for owner in owners %}
+                <option value="{{owner.id}}">
+                    {{owner.name}}
+                </option>
+            {% endfor %}
+        </select>
+
+        <br>
+
+        <input type="submit" value="Save new animal">
+        
+    </form>
+{% endblock content %}

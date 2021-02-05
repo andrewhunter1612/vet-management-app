@@ -25,6 +25,6 @@ def select_all_vets():
     return vets
 
 def update_vet(vet):
-    sql = "UPDATE vets (name) = (%s) WHERE id =%s"
+    sql = "UPDATE vets SET name = %s WHERE id =%s"
     values = [vet.name, vet.id]
     run_sql(sql, values)
