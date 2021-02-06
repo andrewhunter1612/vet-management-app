@@ -31,3 +31,23 @@ def add_new_animal():
     new_animal = Animal(name, dob, animal_type, owner, treatment_notes, vet)
     animal_repository.save_new_animal(new_animal)
     return redirect('/animals')
+
+@animal_blueprint.route('/animals/<id>/edit')
+def edit_animal_page(id):
+    animal = animal_repository.select_animal(id)
+    vets = vet_repository.select_all_vets()
+    owners = owner_repository.select_all_owners()
+    return render_template('animals/edit.html', owners=owners, vets=vets, animal=animal)
+
+@animal_blueprint.route('/animals/<id>/edit', methods=["POST"])
+def edit_animal(id):
+    name = request.form["name"]
+    dob = request.form["dob"]
+    animal_type = request.form["animal_type"]
+    treatment_notes = request.form["notes"]
+    owner = owner_repository.select_owner(request.form["owner_id"])
+    vet = vet_repository.select_vet(request.form["vet_id"])
+    new_animal = Animal(name, dob, animal_type, owner, treatment_notes, vet, id)
+    animal_repository.update_animal(new_animal)
+    return redirect('/animals')
+

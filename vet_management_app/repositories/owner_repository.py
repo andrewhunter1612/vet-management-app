@@ -30,3 +30,5 @@ def update_owner(owner):
     sql = "UPDATE owners SET (name, phone_number, address) = (%s, %s, %s) WHERE id = %s"
     values = [owner.name, owner.phone_number, owner.address, owner.id]
     run_sql(sql, values)
+
+# TODO put in a sort database function

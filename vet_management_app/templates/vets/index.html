@@ -8,6 +8,7 @@
             {% for vet in vets %}
                 <p>id: {{vet.id}}</p>
                 <p>Name: {{vet.name}}</p>
+                <button class="edit-button"><a href="/vets/{{vet.id}}/edit">Edit vet</a></button>
                 <hr>
             {% endfor %}
         </section>

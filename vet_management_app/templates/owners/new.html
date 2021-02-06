@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>new owner page</h1>
 
-    <form action="/owners" method="POST">
-        <label for="name">Enter owner name</label>
-        <input type="text" name="name" id="name">
+    <form action="/owners/new" method="POST">
+        <label for="name">Enter name</label>
+        <input type="text" name="name" id="name" placeholder="Name">
         <br>
 
-        <label for="phone">Enter owner phone number</label>
-        <input type="text" name="phone" id="phone">
+        <label for="phone">Enter phone number</label>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number">
         <br>
 
-        <label for="address">Enter owner address</label>
-        <input type="text" name="address" id="address">
+        <label for="address">Enter address</label>
+        <input type="text" name="address" id="address" placeholder="Address">
         <br>
 
         <input type="submit" value="Add new owner">

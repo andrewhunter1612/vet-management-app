@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add new owner</h2>
+
+    <form action="/owners/{{owner.id}}/edit" method="POST">
+        <label for="name">Enter name</label>
+        <input type="text" name="name" id="name" placeholder="Name" value={{owner.name}}>
+        <br>
+
+        <label for="phone">Enter phone number</label>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number" value={{owner.phone_number}}>
+        <br>
+
+        <label for="address">Enter address</label>
+        <input type="text" name="address" id="address" placeholder="Address" value={{owner.address}}>
+        <br>
+
+        <input type="submit" value="Update owner">
+    </form>
+
+
+{% endblock content %}  

@@ -2,9 +2,9 @@
 {% block content %}
     <h1>new vet page</h1>
 
-    <form action="/vets" method="POST">
-        <label for="name">Enter vet name</label>
-        <input type="text" name="name" id="name">
+    <form action="/vets/new" method="POST">
+        <label for="name">Vet name</label>
+        <input type="text" name="name" id="name" placeholder="Name">
         <br>
         <input type="submit" value="Add new vet">
     </form>

@@ -20,5 +20,8 @@ Let the practice see all animals currently in the practice (today's date is betw
 Sometimes an owner does not know the DOB. Allow them to enter an age instead. Try and make sure this always up to date - ie if they visit again a year from now a 3 yr old dog is now 4.
 Add extra functionality of your choosing - assigning treatments, a more comprehensive way of maintaining treatment notes over time. Appointments. Pricing / billing.
 
-
+To run app:
+Create a database called 'vet_management'. 
+Populate the database by running 'python3 console.py'
+In the terminal, execute 'flask run'
 

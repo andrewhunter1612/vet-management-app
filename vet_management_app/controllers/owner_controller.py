@@ -14,12 +14,27 @@ def owner_page():
 def new_owner_page():
     return render_template('owners/new.html')
 
-@owner_blueprint.route('/owners', methods=["POST"])
+@owner_blueprint.route('/owners/new', methods=["POST"])
 def add_new_owner():
     name = request.form["name"]
     phone_number = request.form["phone"]
     address = request.form["address"]
     owner = Owner(name, phone_number, address)
     owner_repository.save_new_owner(owner)
-    return redirect('')
+    return redirect('/owners')
+
+@owner_blueprint.route('/owners/<id>/edit')
+def edit_owner_page(id):
+    owner = owner_repository.select_owner(id)
+    return render_template('owners/edit.html', owner=owner)
+
+@owner_blueprint.route('/owners/<id>/edit', methods=["POST"])
+def edit_owner(id):
+    name = request.form["name"]
+    phone_number = request.form["phone"]
+    address = request.form["address"]
+    owner = Owner(name, phone_number, address, id)
+    owner_repository.update_owner(owner)
+    return redirect('/owners')
+
 

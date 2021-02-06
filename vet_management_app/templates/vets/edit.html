@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>new vet page</h1>
+
+<form action="/vets/{{vet.id}}/edit" method="POST">
+    <label for="name">Vet name</label>
+    <input type="text" name="name" id="name" placeholder="Name" value={{vet.name}}>
+    <br>
+    <input type="submit" value="Update vet">
+</form>
+
+{% endblock content %}  
