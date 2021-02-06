@@ -8,6 +8,7 @@ vet_blueprint = Blueprint("vet", __name__)
 @vet_blueprint.route('/vets')
 def vets_page():
     vets = vet_repository.select_all_vets()
+    vets = sorted(vets, key=lambda vet:vet.name)
     return render_template('/vets/index.html', vets=vets)
 
 @vet_blueprint.route('/vets/new')
@@ -16,7 +17,7 @@ def add_new_vet_page():
 
 @vet_blueprint.route('/vets/new', methods=["POST"])
 def add_new_vet():
-    name = request.form["name"]
+    name = request.form["name"].capitalize()
     vet = Vet(name)
     vet_repository.save_new_vet(vet)
     return redirect('/vets')

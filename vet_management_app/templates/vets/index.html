@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>this is the vets page</h2>
+<article class="main-article">
+    <section>
+        <section class="block-list">
+            
+            {% for vet in vets %}
+            <section class="list-item">
+                <div class="list-div">
+                    <a href="/vets/{{vet.id}}/edit">
+                        <p>id: {{vet.id}}</p>
+                        <p>Name: {{vet.name}}</p>
+                    </a>
+                </div>
+                
+                
+            </section>
+            {% endfor %}
+            
+        </section>
+        <br>
+        <button class="button-new"><a href="/vets/new">Add new vet</a></button>
+
+    </section>
 
     <section>
-        <section>
-            {% for vet in vets %}
-                <p>id: {{vet.id}}</p>
-                <p>Name: {{vet.name}}</p>
-                <button class="edit-button"><a href="/vets/{{vet.id}}/edit">Edit vet</a></button>
-                <hr>
-            {% endfor %}
-        </section>
-        <button class="button-new"><a href="/vets/new">Add new vet</a></button>
+        <h2>this</h2>
     </section>
+</article>
 {% endblock  %}

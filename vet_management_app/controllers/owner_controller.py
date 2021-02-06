@@ -8,6 +8,7 @@ owner_blueprint = Blueprint("owner", __name__)
 @owner_blueprint.route('/owners')
 def owner_page():
     owners = owner_repository.select_all_owners()
+    owners = sorted(owners, key=lambda owner:owner.name)
     return render_template('/owners/index.html', owners=owners)
 
 @owner_blueprint.route('/owners/new')
@@ -16,9 +17,9 @@ def new_owner_page():
 
 @owner_blueprint.route('/owners/new', methods=["POST"])
 def add_new_owner():
-    name = request.form["name"]
+    name = request.form["name"].capitalize()
     phone_number = request.form["phone"]
-    address = request.form["address"]
+    address = request.form["address"].capitalize()
     owner = Owner(name, phone_number, address)
     owner_repository.save_new_owner(owner)
     return redirect('/owners')

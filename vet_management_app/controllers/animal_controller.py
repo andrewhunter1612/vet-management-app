@@ -12,6 +12,7 @@ animal_blueprint = Blueprint("animal", __name__)
 @animal_blueprint.route('/animals')
 def animals_page():
     animals = animal_repository.select_all_animals()
+    animals = sorted(animals, key=lambda animal:animal.name)
     return render_template('/animals/index.html', title="Animals", animals=animals)
 
 @animal_blueprint.route('/animals/new')
@@ -20,12 +21,12 @@ def new_animal_page():
     vets = vet_repository.select_all_vets()
     return render_template('/animals/new.html', vets=vets, owners=owners)
 
-@animal_blueprint.route('/animals', methods=["POST"])
+@animal_blueprint.route('/animals/new', methods=["POST"])
 def add_new_animal():
-    name = request.form["name"]
+    name = request.form["name"].capitalize()
     dob = request.form["dob"]
-    animal_type = request.form["animal_type"]
-    treatment_notes = request.form["treatment_notes"]
+    animal_type = request.form["animal_type"].capitalize()
+    treatment_notes = request.form["notes"].capitalize()
     owner = owner_repository.select_owner(request.form["owner_id"])
     vet = vet_repository.select_vet(request.form["vet_id"])
     new_animal = Animal(name, dob, animal_type, owner, treatment_notes, vet)
