@@ -2,14 +2,13 @@
 
 {% block content %}
 <article class="main-article">
-    <section>
+    <section class="full-block">
         <section class="block-list">
             
             {% for vet in vets %}
             <section class="list-item">
                 <div class="list-div">
                     <a href="/vets/{{vet.id}}/edit">
-                        <p>id: {{vet.id}}</p>
                         <p>Name: {{vet.name}}</p>
                     </a>
                 </div>

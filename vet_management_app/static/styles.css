@@ -6,7 +6,13 @@ body{
 #main-header {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    background-color: blanchedalmond;
+    margin: 0px;
+    padding: 8px;
+    
 }
+
+
 
 #main-header > nav > ul{
     display: flex;
@@ -17,7 +23,7 @@ body{
 
 #main-header > nav > ul >li{
     margin: 10px;
-    background-color: red;
+    background-color: greenyellow;
     border-radius: 12px;
     padding: 10px;
 }
@@ -30,7 +36,11 @@ body{
 
 /* buttons */
 .button-new {
-    background-color: green;
+    background-color: khaki;
+    height: 50px;
+    width: 200px;
+    font-size: large;
+    border-radius: 8px;
     
 }
 
@@ -44,6 +54,7 @@ body{
 
 .button-new > a{
     text-decoration: none;
+    color: lime;
 }
 
 .clickable-button >a{
@@ -63,32 +74,45 @@ body{
 
 /* lists */
 
+.full-block {
+    display: grid;
+    justify-content: center;
+}
+
 .list-item{
     background-color: aliceblue;
     border-radius: 15px;
+    margin: 5px 0px;
 }
 
 .block-list{
     margin: 4px;
-    height: 500px;
+    max-height: 500px;
     overflow-y: scroll;
     
 }
 
 .list-item > p{
-    margin: 4px;
+    margin: px;
     padding: 4px;
 }
 
 .list-div{
+    font-size: larger;
     background-color: red;
     margin: 0px 20px;
-    padding: 0px;
+    border-radius: 10px;
+    padding: 4px;
 }
 
 .list-div>a{
     text-decoration: none;
     color: black;
+}
+
+.list-div>a>p{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .main-article{
