@@ -54,7 +54,7 @@ body{
 
 .button-new > a{
     text-decoration: none;
-    color: lime;
+    color: lightcoral;
 }
 
 .clickable-button >a{
@@ -72,14 +72,23 @@ body{
     text-decoration: none;
 }
 
+.info-button{
+    background-color: brown;
+    border-radius: 5px;
+}
+
 /* lists */
 
 .full-block {
     display: grid;
     justify-content: center;
+    justify-items: center;
+    margin-top: 10px;
 }
 
 .list-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background-color: aliceblue;
     border-radius: 15px;
     margin: 5px 0px;
@@ -93,6 +102,7 @@ body{
 }
 
 .list-item > p{
+    
     margin: px;
     padding: 4px;
 }
@@ -118,4 +128,19 @@ body{
 .main-article{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+/* more info */
+
+.more-info-article{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: peru;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.more-info-article>h2{
+    margin-top: 0px;
 }

@@ -1,25 +1,42 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
-<header>
-</header>
-<main>
-    <section>
-        {% for owner in owners %}
-            <p>{{owner.id}}</p>
-            <p>{{owner.name}}</p>
-            <button class="edit-button"><a href="/owners/{{owner.id}}/edit">Edit owner</a></button>
-            <hr>
-        {% endfor %}    
-
+<article class="main-article">
+    <section class="full-block">
+        <section class="block-list">
+            
+            {% for owner in owners %}
+            <section class="list-item">
+                <div class="list-div">
+                    <a href="/owners/{{owner.id}}/more">
+                        <p> 
+                            {{owner.name}}
+                            <button class="info-button">More info</button>
+                        </p>
+                    </a>
+                </div>
+            </section>
+            {% endfor %}
+        </section>
+        <br>
+        <button class="button-new"><a href="/owners/new">Add new owner</a></button>
     </section>
+
     <section>
-        <!-- more info on animal selected -->
+        {% if more_info %}
+        <article class="more-info-article">
+            <h2>More info</h2>
+            <section>
+                <div>
+                    Name: {{chosen_owner.name}}
+                </div>
+            </section>
+            <section>
+                <button class="info-button">
+                    <a href="/owners/{{chosen_owner.id}}/edit">Edit {{chosen_owner.name}}</a>
+                </button>
+            </section>
+        </article>
+        {% endif %}
     </section>
-</main>
-<footer>
-    <button class="button-new"><a href="/owners/new">Add new owner</a></button>
-</footer>
-    
+</article>
 {% endblock %}

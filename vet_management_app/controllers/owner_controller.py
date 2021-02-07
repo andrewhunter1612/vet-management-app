@@ -38,4 +38,10 @@ def edit_owner(id):
     owner_repository.update_owner(owner)
     return redirect('/owners')
 
-
+@owner_blueprint.route('/owners/<id>/more')
+def more_owner_info(id):
+    owners = owner_repository.select_all_owners()
+    owners = sorted(owners, key=lambda owner:owner.name)
+    chosen_owner = owner_repository.select_owner(id)
+    return render_template('/owners/index.html', more_info=True, chosen_owner=chosen_owner, owners=owners)
+    

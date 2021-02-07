@@ -8,8 +8,12 @@
             {% for vet in vets %}
             <section class="list-item">
                 <div class="list-div">
-                    <a href="/vets/{{vet.id}}/edit">
-                        <p>Name: {{vet.name}}</p>
+                    <a href="/vets/{{vet.id}}/more">
+                        <p> 
+                            {{vet.name}}
+                            <button class="info-button">More info</button>
+                        </p>
+                        
                     </a>
                 </div>
                 
@@ -24,7 +28,22 @@
     </section>
 
     <section>
-        <h2>this</h2>
+        {% if more_info %}
+        <article class="more-info-article">
+            <h2>More info</h2>
+            <section>
+                <div>
+                    Name: {{chosen_vet.name}}
+                </div>
+            </section>
+            <section>
+                <button class="info-button">
+                    <a href="/vets/{{chosen_vet.id}}/edit">Edit {{chosen_vet.name}}</a>
+                </button>
+
+            </section>
+        </article>
+        {% endif %}
     </section>
 </article>
 {% endblock  %}

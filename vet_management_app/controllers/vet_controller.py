@@ -9,7 +9,7 @@ vet_blueprint = Blueprint("vet", __name__)
 def vets_page():
     vets = vet_repository.select_all_vets()
     vets = sorted(vets, key=lambda vet:vet.name)
-    return render_template('/vets/index.html', vets=vets)
+    return render_template('/vets/index.html', more_info=False, vets=vets)
 
 @vet_blueprint.route('/vets/new')
 def add_new_vet_page():
@@ -33,3 +33,10 @@ def edit_vet(id):
     vet = Vet(name, id)
     vet_repository.update_vet(vet)
     return redirect ('/vets')
+
+@vet_blueprint.route('/vets/<id>/more')
+def more_info(id):
+    vets = vet_repository.select_all_vets()
+    vets = sorted(vets, key=lambda vet:vet.name)
+    chosen_vet = vet_repository.select_vet(id)
+    return render_template('/vets/index.html', more_info=True, chosen_vet=chosen_vet, vets=vets)

@@ -1,20 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h3>this is the animal page</h3>
-<section>
-    {% for animal in animals %}
-        <section class="list-item">
-            <p>{{animal.id}}</p>
-            <p>{{animal.name}}</p>
-            <p>{{animal.date_of_birth}}</p>
-            <p>{{animal.animal_type}}</p>
-            <p>{{animal.treatment_notes}}</p>
-            <button class="edit-button"><a href="/animals/{{animal.id}}/edit">Edit animal</a></button>
-            <hr>
-        </section>
-    {% endfor %}
-</section>
 <button class="button-new"><a href="/animals/new">Add new animal</a></button>
-    
+<article class="main-article">
+    <section class="full-block">
+        <section class="block-list">
+            
+            {% for animal in animals %}
+            <section class="list-item">
+                <div class="list-div">
+                    <a href="/animals/{{animal.id}}/more">
+                        <p> 
+                            {{animal.name}}
+                            <button class="info-button">More info</button>
+                        </p>
+                        
+                    </a>
+                </div>
+                
+                
+            </section>
+            {% endfor %}
+            
+        </section>
+        <br>
+        <button class="button-new"><a href="/animals/new">Add new animal</a></button>
+
+    </section>
+
+    <section>
+        {% if more_info %}
+        <article class="more-info-article">
+            <h2>More info</h2>
+            <section>
+                <div>
+                    <p>{{chosen_animal.name}}</p>
+                    <p>{{chosen_animal.date_of_birth}}</p>
+                    <p>{{chosen_animal.animal_type}}</p>
+                    <p>{{chosen_animal.treatment_notes}}</p>
+                    <p>{{chosen_animal.owner.name}}</p>
+                    <p>{{chosen_animal.vet.name}}</p>
+                </div>
+            </section>
+            <section>
+                <button class="info-button">
+                    <a href="/animals/{{chosen_animal.id}}/edit">Edit {{chosen_animal.name}}</a>
+                </button>
+
+            </section>
+        </article>
+        {% endif %}
+    </section>
+</article>
 {% endblock %}
