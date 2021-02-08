@@ -1,4 +1,4 @@
-brief: 
+Brief: 
 
 Vet Management App
 A veterinary practice has approached you to build a web application to help them manage their animals and vets. A vet may look after many animals at a time. An animal is registered with only one vet.
