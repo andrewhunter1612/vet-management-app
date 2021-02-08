@@ -31,22 +31,40 @@
     </section>
 
     <section>
-        {% if more_info %}
-        <article class="more-info-article">
-            <h2>More info</h2>
-            <section>
-                <div>
-                    Name: {{chosen_vet.name}}
-                </div>
-            </section>
-            <section>
-                <button class="info-button">
-                    <a href="/vets/{{chosen_vet.id}}/edit">Edit {{chosen_vet.name}}</a>
-                </button>
+        <section class="more-info-section">
+            {% if more_info %}
+            <article class="more-info-article">
+                <h2>More info</h2>
+                <section class="more-info-text">
+                    <div>
+                        Name: {{chosen_vet.name}}
+                    </div>
+                </section>
+                <section>
+                    <button class="info-button">
+                        <a href="/vets/{{chosen_vet.id}}/edit">Edit {{chosen_vet.name}}</a>
+                    </button>
 
-            </section>
-        </article>
-        {% endif %}
+                </section>
+            </article>
+            {% endif %}
+        </section>
+    
+
+        <section class="edit-info-section">
+            {% if edit_info %}
+                <article class="edit-info-article">
+                    <h2>Edit {{chosen_vet.name}}</h2>
+                    <form action="/vets/{{chosen_vet.id}}/edit" method="POST" class="edit-form">
+                        <label for="name">Enter name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" value={{chosen_vet.name}}>
+                        <br><br>
+                
+                        <input type="submit" value="Update {{chosen_vet.name}}" class="info-button">
+                    </form>
+                </article>
+            {% endif %}
+        </section>
     </section>
 </article>
 {% endblock  %}

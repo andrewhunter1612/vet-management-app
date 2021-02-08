@@ -24,15 +24,18 @@ def add_new_vet():
 
 @vet_blueprint.route('/vets/<id>/edit')
 def edit_vet_page(id):
-    vet = vet_repository.select_vet(id)
-    return render_template('vets/edit.html', vet=vet)
+    vets = vet_repository.select_all_vets()
+    vets = sorted(vets, key=lambda vet:vet.name)
+    # vet = vet_repository.select_vet(id)
+    chosen_vet = vet_repository.select_vet(id)
+    return render_template('vets/index.html', vets=vets, chosen_vet=chosen_vet, more_info=True, edit_info=True)
 
 @vet_blueprint.route('/vets/<id>/edit', methods=["POST"])
 def edit_vet(id):
     name = request.form["name"]
     vet = Vet(name, id)
     vet_repository.update_vet(vet)
-    return redirect ('/vets')
+    return redirect ('/vets/' + id + '/more')
 
 @vet_blueprint.route('/vets/<id>/more')
 def more_info(id):
