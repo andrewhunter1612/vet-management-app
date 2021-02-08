@@ -25,7 +25,7 @@ def select_all_animals():
     animals = []
     for result in results:
         owner = owner_repository.select_owner(result["owner_id"])
-        vet = vet_repository.select_vet(result["owner_id"])
+        vet = vet_repository.select_vet(result["vet_id"])
         animal = Animal(result["name"], result["date_of_birth"], result["animal_type"], owner, result["treatment_notes"], vet, result["id"])
         animals.append(animal)
     return animals

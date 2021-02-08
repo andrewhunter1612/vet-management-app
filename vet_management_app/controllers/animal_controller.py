@@ -35,13 +35,22 @@ def add_new_animal():
 
 @animal_blueprint.route('/animals/<id>/edit')
 def edit_animal_page(id):
-    print(id)
     vets = vet_repository.select_all_vets()
     owners = owner_repository.select_all_owners()
     chosen_animal = animal_repository.select_animal(id)
     animals = animal_repository.select_all_animals()
     animals = sorted(animals, key=lambda animal:animal.name)
-    return render_template('animals/index.html', owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
+
+    dob = chosen_animal.date_of_birth.split('/')
+    print(dob)
+    print(len(dob))
+    if len(dob)==3:
+        if len(dob[1]) <2:
+            dob[1] = "0" + dob[1]
+        dob = dob[2]+"-"+dob[1]+"-"+dob[0]
+    print(dob)
+
+    return render_template('animals/index.html', dob=dob, owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
 
 @animal_blueprint.route('/animals/<id>/edit', methods=["POST"])
 def edit_animal(id):

@@ -186,6 +186,23 @@ body{
     font-size: large;
 }
 
+.animal-list {
+    margin-left: 20px;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    
+}
+
+.animal-list > a{
+    text-decoration: none;
+    font-style: italic;
+    color: aqua;
+}
+
+.animal-list-title{
+    margin-bottom: 0px;
+}
+
 
 /* edit info */
 .edit-info-article{

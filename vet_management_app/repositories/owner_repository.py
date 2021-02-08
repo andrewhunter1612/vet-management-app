@@ -1,5 +1,8 @@
 from models.owner import Owner
 from db.run_sql import run_sql
+from models.animal import Animal
+
+import repositories.vet_repository as vet_repository
 
 
 def save_new_owner(owner):
@@ -31,4 +34,13 @@ def update_owner(owner):
     values = [owner.name, owner.phone_number, owner.address, owner.id]
     run_sql(sql, values)
 
-# TODO put in a sort database function
+def get_all_animals(owner):
+    sql = "SELECT * FROM animals WHERE owner_id=%s"
+    value = [owner.id]
+    results = run_sql(sql, value)
+    animals = []
+    for result in results:
+        vet = vet_repository.select_vet(result["vet_id"])
+        animal = Animal(result["name"], result["date_of_birth"], result["animal_type"], owner, result["treatment_notes"], vet, result["id"])
+        animals.append(animal)
+    return animals

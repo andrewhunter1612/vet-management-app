@@ -15,10 +15,11 @@ owner_3 = Owner("Joe", "0123456789", "1600 Pensylvannia avenue")
 owner_4 = Owner("Mike", "0123456789", "Marigold lane")
 
 
-animal_1 = Animal("My little pony", "13/1/2020", "Horse", owner_1, "A good little horsey", vet_1)
-animal_2 = Animal("Doggy", "13/1/2020", "Dog", owner_2, "Doesn't like the vet", vet_2)
+animal_1 = Animal("My little pony", "23/1/2020", "Horse", owner_1, "A good little horsey", vet_1)
+animal_5 = Animal("Jaws", "23/1/2020", "Goldfish", owner_1, "We're gonna need a bigger boat", vet_1)
+animal_2 = Animal("Doggy", "11/1/2020", "Dog", owner_2, "Doesn't like the vet", vet_2)
 animal_3 = Animal("Kitty kat", "13/1/2020", "cat", owner_3, "A wee shitebag", vet_3)
-animal_4 = Animal("Gerry", "13/1/2020", "Giraffe", owner_4, "Easy to find in a busy shop", vet_4)
+animal_4 = Animal("Gerry", "13/2/2020", "Giraffe", owner_4, "Easy to find in a busy shop", vet_4)
 
 vet_repository.save_new_vet(vet_1)
 vet_repository.save_new_vet(vet_2)
@@ -33,6 +34,7 @@ owner_repository.save_new_owner(owner_3)
 animal_repository.save_new_animal(animal_3)
 owner_repository.save_new_owner(owner_4)
 animal_repository.save_new_animal(animal_4)
+animal_repository.save_new_animal(animal_5)
 
 # vet_repository.update_vet(vet_1)
 # owner_repository.update_owner(owner_1)

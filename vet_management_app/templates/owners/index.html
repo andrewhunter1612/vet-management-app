@@ -34,10 +34,14 @@
             <article class="more-info-article">
                 <h2>More info</h2>
                 <section class="more-info-text">
-                    <div>
-                        <p>Name: {{chosen_owner.name}}</p>
-                        <p>Phone number: {{chosen_owner.phone_number}}</p>
-                        <p>Address: {{chosen_owner.address}}</p>
+                    <div></b>
+                        <p><b>Name:</b> {{chosen_owner.name}}</p>
+                        <p><b>Phone number:</b> {{chosen_owner.phone_number}}</p>
+                        <p><b>Address:</b> {{chosen_owner.address}}</p>
+                        <p class="animal-list-title"><b>Animals:</b> </p>
+                        {% for animal in animals %}
+                            <p class="animal-list"><a href="/animals/{{animal.id}}/more">{{animal.name}}</p></a>
+                        {% endfor %}
                     </div>
                 </section>
                 <section>

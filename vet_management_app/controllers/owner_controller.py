@@ -29,7 +29,8 @@ def edit_owner_page(id):
     chosen_owner = owner_repository.select_owner(id)
     owners = owner_repository.select_all_owners()
     owners = sorted(owners, key=lambda owner:owner.name)
-    return render_template('owners/index.html', owners=owners, more_info=True, edit_info=True, chosen_owner=chosen_owner)
+    animals = owner_repository.get_all_animals(chosen_owner)
+    return render_template('owners/index.html', animals=animals, owners=owners, more_info=True, edit_info=True, chosen_owner=chosen_owner)
 
 @owner_blueprint.route('/owners/<id>/edit', methods=["POST"])
 def edit_owner(id):
@@ -45,5 +46,6 @@ def more_owner_info(id):
     owners = owner_repository.select_all_owners()
     owners = sorted(owners, key=lambda owner:owner.name)
     chosen_owner = owner_repository.select_owner(id)
-    return render_template('/owners/index.html', more_info=True, chosen_owner=chosen_owner, owners=owners)
+    animals = owner_repository.get_all_animals(chosen_owner)
+    return render_template('/owners/index.html', animals=animals, more_info=True, chosen_owner=chosen_owner, owners=owners)
     
