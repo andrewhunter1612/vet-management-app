@@ -26,8 +26,10 @@ def add_new_owner():
 
 @owner_blueprint.route('/owners/<id>/edit')
 def edit_owner_page(id):
-    owner = owner_repository.select_owner(id)
-    return render_template('owners/edit.html', owner=owner)
+    chosen_owner = owner_repository.select_owner(id)
+    owners = owner_repository.select_all_owners()
+    owners = sorted(owners, key=lambda owner:owner.name)
+    return render_template('owners/index.html', owners=owners, more_info=True, edit_info=True, chosen_owner=chosen_owner)
 
 @owner_blueprint.route('/owners/<id>/edit', methods=["POST"])
 def edit_owner(id):
@@ -36,7 +38,7 @@ def edit_owner(id):
     address = request.form["address"]
     owner = Owner(name, phone_number, address, id)
     owner_repository.update_owner(owner)
-    return redirect('/owners')
+    return redirect('/owners/'+id+'/more')
 
 @owner_blueprint.route('/owners/<id>/more')
 def more_owner_info(id):

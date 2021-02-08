@@ -4,7 +4,7 @@ from db.run_sql import run_sql
 
 def save_new_owner(owner):
     sql = "INSERT INTO owners (name, address, phone_number) Values (%s, %s, %s) RETURNING * "
-    values = [owner.name, owner.phone_number, owner.address]
+    values = [owner.name, owner.address, owner.phone_number]
     results = run_sql(sql, values)
     id = results[0]["id"]
     owner.id = id

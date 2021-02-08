@@ -1,6 +1,7 @@
 body{
     background-color: skyblue;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-y: scroll;
 }
 
 #main-header {
@@ -9,16 +10,13 @@ body{
     background-color: blanchedalmond;
     margin: -10px;
     padding: 15px;
-    
+    margin-bottom: 20px;
 }
 
 #home-page-main {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    
     column-gap: 1px;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -32,7 +30,7 @@ body{
 
 #main-footer{
     background-color: blueviolet;
-    margin-top: 20px;
+    margin-top: 30px;
     height: 100px;
 }
 
@@ -96,13 +94,6 @@ body{
     text-decoration: none;
 }
 
-.info-button {
-    background-color: brown;
-    border-radius: 5px;
-    color: aliceblue;
-    font-size: large;
-}
-
 .info-button > a{
     text-decoration: none;
     color: aliceblue;
@@ -122,7 +113,7 @@ body{
     grid-template-columns: 2fr 1fr;
     background-color: aliceblue;
     border-radius: 15px;
-    margin: 5px 0px;
+    margin-bottom: 5px;
     margin-right: 5px;
 }
 
@@ -132,7 +123,6 @@ body{
 }
 
 .block-list{
-    margin: 4px;
     width: 400px;
     max-height: 500px;
     overflow-y: auto;
@@ -177,8 +167,39 @@ body{
     padding: 12px;
     border-radius: 10px;
     margin-top: 10px;
+    margin-right: 20px;
+}
+
+.more-info-text{
+    margin-bottom: 10px;
 }
 
 .more-info-article>h2{
     margin-top: 0px;
 }
+
+.info-button {
+    background-color: brown;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: large;
+}
+
+
+/* edit info */
+.edit-info-article{
+    background-color: peru;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.edit-info-article>h2{
+    margin-top: 0px;
+}
+.edit-info-section{
+
+}
+
+

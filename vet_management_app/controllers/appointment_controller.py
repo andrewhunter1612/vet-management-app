@@ -10,4 +10,6 @@ from models.appointment import Appointment
 
 appointment_blueprint = Blueprint("appointment", __name__)
 
-
+@appointment_blueprint.route('/appointments')
+def index():
+    return render_template('appointments/index.html')

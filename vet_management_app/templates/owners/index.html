@@ -29,21 +29,47 @@
     </section>
 
     <section>
-        {% if more_info %}
-        <article class="more-info-article">
-            <h2>More info</h2>
-            <section>
-                <div>
-                    Name: {{chosen_owner.name}}
-                </div>
-            </section>
-            <section>
-                <button class="info-button">
-                    <a href="/owners/{{chosen_owner.id}}/edit">Edit {{chosen_owner.name}}</a>
-                </button>
-            </section>
-        </article>
-        {% endif %}
+        <section class="more-info-section">
+            {% if more_info %}
+            <article class="more-info-article">
+                <h2>More info</h2>
+                <section class="more-info-text">
+                    <div>
+                        <p>Name: {{chosen_owner.name}}</p>
+                        <p>Phone number: {{chosen_owner.phone_number}}</p>
+                        <p>Address: {{chosen_owner.address}}</p>
+                    </div>
+                </section>
+                <section>
+                    <button class="info-button">
+                        <a href="/owners/{{chosen_owner.id}}/edit">Edit {{chosen_owner.name}}</a>
+                    </button>
+                </section>
+            </article>
+            {% endif %}
+        </section>
+        <section class="edit-info-section">
+            {% if edit_info %}
+                <article class="edit-info-article">
+                    <h2>Edit {{chosen_owner.name}}</h2>
+                    <form action="/owners/{{chosen_owner.id}}/edit" method="POST">
+                        <label for="name">Enter name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" value={{chosen_owner.name}}>
+                        <br>
+                
+                        <label for="phone">Enter phone number</label>
+                        <input type="text" name="phone" id="phone" placeholder="Phone Number" value={{chosen_owner.phone_number}}>
+                        <br>
+                
+                        <label for="address">Enter address</label>
+                        <input type="text" name="address" id="address" placeholder="Address" value={{chosen_owner.address}}>
+                        <br>
+                
+                        <input type="submit" value="Update owner">
+                    </form>
+                </article>
+            {% endif %}
+        </section>
     </section>
 </article>
 {% endblock %}

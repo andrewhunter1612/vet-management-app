@@ -14,7 +14,7 @@ app.register_blueprint(appointment_blueprint)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home_page/index.html')
 
 
 if __name__ == '__main__':
