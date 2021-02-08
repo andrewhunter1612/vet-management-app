@@ -179,6 +179,16 @@ body{
     margin-top: 0px;
 }
 
+.more-info-button-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.more-info-button-section>button{
+    margin-right: 20px;
+
+}
+
 .info-button {
     background-color: brown;
     border-radius: 5px;

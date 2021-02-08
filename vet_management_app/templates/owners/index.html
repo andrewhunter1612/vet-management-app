@@ -45,9 +45,14 @@
                     </div>
                 </section>
                 <section>
-                    <button class="info-button">
-                        <a href="/owners/{{chosen_owner.id}}/edit">Edit {{chosen_owner.name}}</a>
-                    </button>
+                    <section class="more-info-button-section">
+                        <button class="info-button">
+                            <a href="/owners/{{chosen_owner.id}}/edit">Edit {{chosen_owner.name}}</a>
+                        </button>
+                        <button class="info-button">
+                            <a href="/owners/{{chosen_owner.id}}/delete">Delete {{chosen_owner.name}}</a>
+                        </button>
+                    </section>
                 </section>
             </article>
             {% endif %}

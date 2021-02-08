@@ -44,8 +44,15 @@ def edit_owner(id):
 @owner_blueprint.route('/owners/<id>/more')
 def more_owner_info(id):
     owners = owner_repository.select_all_owners()
+    print(len(owners))
     owners = sorted(owners, key=lambda owner:owner.name)
     chosen_owner = owner_repository.select_owner(id)
     animals = owner_repository.get_all_animals(chosen_owner)
     return render_template('/owners/index.html', animals=animals, more_info=True, chosen_owner=chosen_owner, owners=owners)
-    
+
+@owner_blueprint.route('/owners/<id>/delete')
+def delete_owner_page(id):
+    owner = owner_repository.select_owner(id)
+    owner_repository.archive_owner(owner)
+    print("Deleted")
+    return redirect('/owners')

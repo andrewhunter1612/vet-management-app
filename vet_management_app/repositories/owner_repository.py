@@ -6,8 +6,8 @@ import repositories.vet_repository as vet_repository
 
 
 def save_new_owner(owner):
-    sql = "INSERT INTO owners (name, address, phone_number) Values (%s, %s, %s) RETURNING * "
-    values = [owner.name, owner.address, owner.phone_number]
+    sql = "INSERT INTO owners (name, address, phone_number, archived) Values (%s, %s, %s, %s) RETURNING * "
+    values = [owner.name, owner.address, owner.phone_number, owner.archived]
     results = run_sql(sql, values)
     id = results[0]["id"]
     owner.id = id
@@ -22,7 +22,7 @@ def select_owner(id):
         return owner
 
 def select_all_owners():
-    results = run_sql("SELECT * FROM owners")
+    results = run_sql("SELECT * FROM owners WHERE archived=%s", ["FALSE"])
     owners = []
     for result in results:
         owner = Owner(result["name"], result["phone_number"], result["address"], result["id"])
@@ -44,3 +44,11 @@ def get_all_animals(owner):
         animal = Animal(result["name"], result["date_of_birth"], result["animal_type"], owner, result["treatment_notes"], vet, result["id"])
         animals.append(animal)
     return animals
+
+def archive_owner(owner):
+    sql = "UPDATE owners SET archived = %s WHERE id=%s"
+    owner.update_archived(True)
+    value = [owner.archived, owner.id]
+    result = run_sql(sql, value)
+
+
