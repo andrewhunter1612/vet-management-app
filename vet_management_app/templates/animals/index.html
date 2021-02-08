@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<button class="button-new"><a href="/animals/new">Add new animal</a></button>
 <article class="main-article">
     <section class="full-block">
         <section class="block-list">
@@ -11,20 +10,21 @@
                     <a href="/animals/{{animal.id}}/more">
                         <p> 
                             {{animal.name}}
-                            <button class="info-button">More info</button>
                         </p>
-                        
                     </a>
                 </div>
-                
-                
+                <div class="more-button-div">
+                    <a href="/animals/{{animal.id}}/more">
+                        <p> 
+                            <button class="info-button">More info</button>
+                        </p>
+                    </a>
+                </div>
             </section>
             {% endfor %}
-            
         </section>
         <br>
         <button class="button-new"><a href="/animals/new">Add new animal</a></button>
-
     </section>
 
     <section>

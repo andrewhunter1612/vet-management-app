@@ -14,7 +14,6 @@ def select_animal(id):
     sql = "SELECT * FROM animals WHERE id=%s"
     value = [id]
     result = run_sql(sql, value)[0]
-    print("id is " + str(result["id"]))
     if result is not None:
         owner = owner_repository.select_owner(result["owner_id"])
         vet = vet_repository.select_vet(result["vet_id"])

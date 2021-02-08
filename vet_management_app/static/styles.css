@@ -7,16 +7,29 @@ body{
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: blanchedalmond;
-    margin: 0px;
-    padding: 8px;
+    margin: -10px;
+    padding: 15px;
     
 }
 
+#home-page-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    grid-gap: 3px;
+}
+
+#main-footer{
+    background-color: blueviolet;
+    margin-top: 20px;
+    height: 100px;
+}
 
 
 #main-header > nav > ul{
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-end;
     list-style: none;
     text-decoration: none;
 }
@@ -72,9 +85,16 @@ body{
     text-decoration: none;
 }
 
-.info-button{
+.info-button {
     background-color: brown;
     border-radius: 5px;
+    color: aliceblue;
+    font-size: large;
+}
+
+.info-button > a{
+    text-decoration: none;
+    color: aliceblue;
 }
 
 /* lists */
@@ -88,29 +108,34 @@ body{
 
 .list-item{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     background-color: aliceblue;
     border-radius: 15px;
     margin: 5px 0px;
-}
-
-.block-list{
-    margin: 4px;
-    max-height: 500px;
-    overflow-y: scroll;
-    
+    margin-right: 5px;
 }
 
 .list-item > p{
-    
     margin: px;
     padding: 4px;
 }
 
+.block-list{
+    margin: 4px;
+    width: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+
+
 .list-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: larger;
     background-color: red;
-    margin: 0px 20px;
+    margin: 10px 20px;
     border-radius: 10px;
     padding: 4px;
 }
@@ -120,10 +145,14 @@ body{
     color: black;
 }
 
-.list-div>a>p{
-    margin-block-start: 0px;
-    margin-block-end: 0px;
+
+.more-button-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
 }
+
 
 .main-article{
     display: grid;
@@ -133,8 +162,6 @@ body{
 /* more info */
 
 .more-info-article{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     background-color: peru;
     padding: 12px;
     border-radius: 10px;
