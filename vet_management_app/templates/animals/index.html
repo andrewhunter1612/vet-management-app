@@ -28,27 +28,66 @@
     </section>
 
     <section>
-        {% if more_info %}
-        <article class="more-info-article">
-            <h2>More info</h2>
-            <section>
-                <div>
-                    <p>{{chosen_animal.name}}</p>
-                    <p>{{chosen_animal.date_of_birth}}</p>
-                    <p>{{chosen_animal.animal_type}}</p>
-                    <p>{{chosen_animal.treatment_notes}}</p>
-                    <p>{{chosen_animal.owner.name}}</p>
-                    <p>{{chosen_animal.vet.name}}</p>
-                </div>
-            </section>
-            <section>
-                <button class="info-button">
-                    <a href="/animals/{{chosen_animal.id}}/edit">Edit {{chosen_animal.name}}</a>
-                </button>
+        <section class="more-info-section">
+            {% if more_info %}
+            <article class="more-info-article">
+                <h2>More info</h2>
+                <section>
+                    <div>
+                        <p>Name: {{chosen_animal.name}}</p>
+                        <p>DOB: {{chosen_animal.date_of_birth}}</p>
+                        <p>Animal Type: {{chosen_animal.animal_type}}</p>
+                        <p>Notes: {{chosen_animal.treatment_notes}}</p>
+                        <p>Owner: {{chosen_animal.owner.name}}</p>
+                        <p>Vet: {{chosen_animal.vet.name}}</p>
+                    </div>
+                </section>
+                <section>
+                    <button class="info-button">
+                        <a href="/animals/{{chosen_animal.id}}/edit">Edit {{chosen_animal.name}}</a>
+                    </button>
 
-            </section>
-        </article>
-        {% endif %}
+                </section>
+            </article>
+            {% endif %}
+        </section>
+
+        <section class="edit-info-section">
+            {% if edit_info %}
+                <article class="edit-info-article">
+                    <h2>Edit {{chosen_animal.name}}</h2>
+                    <form action="/animals/{{chosen_animal.id}}/edit" method="POST" class="edit-animal-form">
+                        <label for="name">Enter name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" value={{chosen_animal.name}}>
+                
+                        <label for="dob">Enter date of birth</label>
+                        <input type="date" name="dob" id="dob" value={{chosen_animal.date_of_birth}}>
+
+                        <label for="animal_type">Enter animal type</label>
+                        <input type="text" name="animal_type" id="animal_type" value="{{chosen_animal.animal_type}}" placeholder="Animal type">
+
+                        <label for="notes">Enter treatment notes</label>
+                        <input type="text" name="notes" id="notes" value="{{chosen_animal.treatment_notes}}" placeholder="Treament notes">
+
+                        <label for="owner_id">Choose owner</label>
+                        <select name="owner_id" id="owner_id" >
+                            {% for owner in owners %}
+                                <option value={{owner.id}}>{{owner.name}}</option>
+                            {% endfor %}    
+                        </select>
+
+                        <label for="vet_id">Choose vet</label>
+                        <select name="vet_id" id="vet_id" >
+                            {% for vet in vets %}
+                                <option value={{chosen_animal.vet.id}}>{{vet.name}}</option>
+                            {% endfor %}   
+                        </select>
+                
+                        <input type="submit" value="Update {{chosen_animal.name}}" class="info-button">
+                    </form>
+                </article>
+            {% endif %}
+        </section>
     </section>
 </article>
 {% endblock %}

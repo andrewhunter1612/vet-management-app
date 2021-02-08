@@ -200,14 +200,18 @@ body{
 .edit-info-article>h2{
     margin-top: 0px;
 }
-.edit-info-section{
-
-}
 
 .edit-form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr ;
+}
+
+.edit-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
 }
 
 .edit-form > label {
@@ -217,6 +221,30 @@ body{
 }
 
 .edit-form > input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.edit-animal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr  1fr 1fr 1fr 1fr;
+}
+
+.edit-animal-form > label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.edit-animal-form > input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.edit-animal-form > select {
     display: flex;
     align-items: center;
     margin-bottom: 5px;

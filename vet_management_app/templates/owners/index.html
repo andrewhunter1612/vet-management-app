@@ -57,15 +57,12 @@
                     <form action="/owners/{{chosen_owner.id}}/edit" method="POST" class="edit-form">
                         <label for="name">Enter name</label>
                         <input type="text" name="name" id="name" placeholder="Name" value={{chosen_owner.name}}>
-                        <br><br>
-                
+                    
                         <label for="phone">Enter phone number</label>
                         <input type="text" name="phone" id="phone" placeholder="Phone Number" value={{chosen_owner.phone_number}}>
-                        <br><br>
                 
                         <label for="address">Enter address</label>
                         <input type="text" name="address" id="address" placeholder="Address" value={{chosen_owner.address}}>
-                        <br><br>
                 
                         <input type="submit" value="Update owner" class="info-button">
                     </form>
