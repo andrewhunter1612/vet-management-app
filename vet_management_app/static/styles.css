@@ -4,6 +4,8 @@ body{
     overflow-y: scroll;
 }
 
+
+
 #main-header {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -45,9 +47,16 @@ body{
 
 #main-header > nav > ul >li{
     margin: 10px;
-    background-color: greenyellow;
     border-radius: 12px;
     padding: 10px;
+}
+
+.highlighted-button{
+    background-color: red;
+}
+
+.unhighlighted-button{
+    background-color: greenyellow;
 }
 
 #main-header > nav > ul >li>a{
@@ -326,6 +335,8 @@ body{
     width: 200px;
 }
 
-
+#appointment-filter{
+    background-color: aliceblue;
+}
 
 

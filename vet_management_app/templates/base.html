@@ -11,11 +11,38 @@
         <h1>Vet Shop Boys</h1>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/vets">Vets</a></li>
-                <li><a href="/animals">Animals</a></li>
-                <li><a href="/owners">Owners</a></li>
-                <li><a href="/appointments">Appointments</a></li>
+                
+            
+                {% if url_for(request.endpoint) == "/" %}
+                    <li class="highlighted-button"><a href="/">Home</a></li>
+                {% else %}
+                    <li class="unhighlighted-button"><a href="/">Home</a></li>
+                {% endif %}
+
+                {% if url_for(request.endpoint) == "/vets" %}
+                    <li class="highlighted-button"><a href="/vets">Vets</a></li>
+                {% else %}
+                    <li class="unhighlighted-button"><a href="/vets">Vets</a></li>
+                {% endif %}
+
+                {% if url_for(request.endpoint) == "/animals" %}
+                    <li class="highlighted-button"><a href="/animals">Animals</a></li>
+                {% else %}
+                    <li class="unhighlighted-button"><a href="/animals">Animals</a></li>
+                {% endif %}
+
+                {% if url_for(request.endpoint) == "/owners" %}
+                    <li class="highlighted-button"><a href="/owners">Owners</a></li>
+                {% else %}
+                    <li class="unhighlighted-button"><a href="/owners">Owners</a></li>
+                {% endif %}
+
+                {% if url_for(request.endpoint) == "/appointments" %}
+                    <li class="highlighted-button"><a href="/appointments">Appointments</a></li>
+                {% else %}
+                    <li class="unhighlighted-button"><a href="/appointments">Appointments</a></li>
+                {% endif %}
+                
             </ul>
         </nav>
     </header>
