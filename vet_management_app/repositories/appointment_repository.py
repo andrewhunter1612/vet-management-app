@@ -42,3 +42,15 @@ def update_appointment(appointment):
     sql = "UPDATE appointments SET (date, time, vet_id, animal_id, additional_notes) = (%s, %s, %s, %s, %s) WHERE id=%s"
     values = [appointment.date, appointment.time, appointment.vet.id, appointment.animal.id, appointment.additional_notes, appointment.id]
     result = run_sql(sql, values)
+
+def filter_appointments(date, vet_id, animal_id):
+    sql = "SELECT * FROM appointments WHERE date = %s OR date=%s AND vet_id = %s OR vet_id=%s AND animal_id = %s OR animal_id=%s"
+    values = [date, "",vet_id, "", animal_id, ""]
+    results = run_sql(sql, values)
+    appointments = []
+    for result in results:
+        vet = vet_repository.select_vet(result["vet_id"])
+        animal = animal_repository.select_animal(result["animal_id"])
+        appointment = Appointment(result["date"], result["time"], vet, animal, result["additional_notes"], result["id"])
+        appointments.append(appointment)
+    return appointments

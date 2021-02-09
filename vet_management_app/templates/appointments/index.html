@@ -7,19 +7,19 @@
     </button>
 
 
-    <form id="appointment-filter" action="/appointments/filter" method="POST">
+    <form id="appointment-filter" action="/appointments" method="POST">
         <label class="appointment-filter-item" for="date">Filter appointments</label>
         <input class="appointment-filter-item" type="date" name="date" id="date">
 
         <select class="appointment-filter-item" name="vet_id_a" id="vet_id_a">
-            <option value="" selected>Choose vet</option>
+            <option value="" selected>All vets</option>
             {% for vet in vets %}
                 <option value={{vet.id}}>{{vet.name}}</option>
             {% endfor %}
         </select>
 
         <select class="appointment-filter-item" name="animal_id_a" id="animal_id_a">
-            <option value="" selected>Choose animal</option>
+            <option value="" selected>All animals</option>
             {% for animal in animals %}
                 <option value={{animal.id}}>{{animal.name}}</option>
             {% endfor %}
