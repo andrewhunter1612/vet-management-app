@@ -28,3 +28,9 @@ def update_vet(vet):
     sql = "UPDATE vets SET name = %s WHERE id =%s"
     values = [vet.name, vet.id]
     run_sql(sql, values)
+
+def archive_vet(vet):
+    vet.update_archived(True)
+    sql = "UPDATE vets SET archived = %s WHERE id=%s"
+    values = [vet.archived, vet.id]
+    run_sql(sql, values)

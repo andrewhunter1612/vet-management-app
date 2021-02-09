@@ -43,3 +43,9 @@ def more_info(id):
     vets = sorted(vets, key=lambda vet:vet.name)
     chosen_vet = vet_repository.select_vet(id)
     return render_template('/vets/index.html', more_info=True, chosen_vet=chosen_vet, vets=vets)
+
+@vet_blueprint.route('/vets/<id>/delete')
+def delete_vet(id):
+    vet = vet_repository.select_vet(id)
+    vet_repository.delete_vet(vet)
+    return redirect('/vets')

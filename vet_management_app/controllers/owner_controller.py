@@ -54,5 +54,4 @@ def more_owner_info(id):
 def delete_owner_page(id):
     owner = owner_repository.select_owner(id)
     owner_repository.archive_owner(owner)
-    print("Deleted")
     return redirect('/owners')

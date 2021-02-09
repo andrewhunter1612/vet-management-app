@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS owners;
 
 CREATE TABLE vets(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    archived BOOLEAN
 );
 
 CREATE TABLE owners(
