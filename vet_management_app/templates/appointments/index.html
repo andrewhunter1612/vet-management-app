@@ -1,31 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<section>
-    <form id="appointment-filter" action="">
-        <label for="date">Choose a date</label>
-        <input type="date" name="date" id="date">
+<section class="appointment-top-section">
 
-        <select name="vet_id" id="vet_id">
+    <button class="button-new">
+        <a href="/appointments/new">New Appointment</a>
+    </button>
+
+    
+    <form id="appointment-filter" action="">
+        <label class="appointment-filter-item" for="date">Filter appointments</label>
+        <input class="appointment-filter-item" type="date" name="date" id="date">
+
+        <select class="appointment-filter-item" name="vet_id" id="vet_id">
             <option value="" disabled selected>Choose vet</option>
             {% for vet in vets %}
                 <option value={{vet.id}}>{{vet.name}}</option>
             {% endfor %}
         </select>
 
-        <select name="animal_id" id="animal_id">
+        <select class="appointment-filter-item" name="animal_id" id="animal_id">
             <option value="" disabled selected>Choose animal</option>
             {% for animal in animals %}
                 <option value={{animal.id}}>{{animal.name}}</option>
             {% endfor %}
         </select>
-
-        <input type="submit" value="Filter">
+        <input class="appointment-filter-button" type="submit" value="Filter">
     </form>
 
 
-    <button class="button-new">
-        <a href="/appointments/new">New Appointment</a>
-    </button>
+    
 </section>
 <article id="appointment-info">
     {% for appointment in appointments %}
