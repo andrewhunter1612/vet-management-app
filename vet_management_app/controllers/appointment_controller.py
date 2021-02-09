@@ -14,15 +14,31 @@ appointment_blueprint = Blueprint("appointment", __name__)
 def index():
     appointments = appointment_repository.select_all_appointments()
     appointments = sorted(appointments, key=lambda appointment:appointment.date)
-    
+    vets = vet_repository.select_all_vets()
+    animals = animal_repository.select_all_animals()
+
     for appointment in appointments:
         dob = appointment.date.split('-')
         if len(dob[1]) <2:
             dob[1] = "0" + dob[1]
         appointment.date = dob[2]+"/"+dob[1]+"/"+dob[0]
     
-    return render_template('appointments/index.html', appointments=appointments)
+    return render_template('appointments/index.html', vets=vets, animals=animals, appointments=appointments)
 
+@appointment_blueprint.route('/appointments/filter', methods=["POST"])
+def filter_index():
+    date = request.form["date"]
+    vet_id = request.form["vet_id_a"]
+    animal_id = request.form["animal_id_a"]
+
+    print("1"+vet_id+"s")
+
+    if vet_id is not None:
+        vets = vet_repository.select_vet(vet_id)
+    else:
+        vets = vet_repository.select_all_vets()
+    print(vets)
+    return render_template('appointments/index.html')
 
 @appointment_blueprint.route('/appointments/new')
 def new_appointment_page():
