@@ -3,8 +3,8 @@ from models.vet import Vet
 
 
 def save_new_vet(vet):
-    sql = "INSERT INTO vets (name) VALUES (%s) RETURNING *"
-    values = [vet.name]
+    sql = "INSERT INTO vets (name, archived) VALUES (%s, %s) RETURNING *"
+    values = [vet.name, vet.archived]
     results = run_sql(sql, values)
     vet.id  = results[0]["id"]
     
@@ -17,7 +17,7 @@ def select_vet(id):
         return vet
 
 def select_all_vets():
-    results = run_sql( "SELECT * FROM vets")
+    results = run_sql( "SELECT * FROM vets WHERE archived=%s", ["FALSE"])
     vets = []
     for result in results:
         vet = Vet(result["name"], result["id"])

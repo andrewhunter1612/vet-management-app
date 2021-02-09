@@ -47,5 +47,5 @@ def more_info(id):
 @vet_blueprint.route('/vets/<id>/delete')
 def delete_vet(id):
     vet = vet_repository.select_vet(id)
-    vet_repository.delete_vet(vet)
+    vet_repository.archive_vet(vet)
     return redirect('/vets')
