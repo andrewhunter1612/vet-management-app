@@ -11,9 +11,15 @@
         <a href="/appointments/new">New Appointment</a>
     </button>
 </section>
-<article>
+<article id="appointment-info">
     {% for appointment in appointments %}
-        
+    <div id="appointment-block">
+        <p><b>Date:</b> {{appointment.date}}</p>
+        <p><b>Time:</b> {{appointment.time}}</p>
+        <p><b>Vet:</b> {{appointment.vet.name}}</p>
+        <p><b>Animal:</b> {{appointment.animal.name}}</p>
+        <p><b>Notes:</b> {{appointment.additional_notes}}</p>
+    </div>
     {% endfor %}
     
 </article>

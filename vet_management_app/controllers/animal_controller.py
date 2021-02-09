@@ -42,13 +42,10 @@ def edit_animal_page(id):
     animals = sorted(animals, key=lambda animal:animal.name)
 
     dob = chosen_animal.date_of_birth.split('/')
-    print(dob)
-    print(len(dob))
     if len(dob)==3:
         if len(dob[1]) <2:
             dob[1] = "0" + dob[1]
         dob = dob[2]+"-"+dob[1]+"-"+dob[0]
-    print(dob)
 
     return render_template('animals/index.html', dob=dob, owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
 

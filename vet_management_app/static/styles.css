@@ -292,3 +292,18 @@ body{
 #submit-new-appointment{
     margin: 10px;
 }
+
+#appointment-info{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#appointment-block{
+    background-color: firebrick;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
+
