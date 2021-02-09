@@ -43,10 +43,16 @@
                     </div>
                 </section>
                 <section>
-                    <button class="info-button">
-                        <a href="/animals/{{chosen_animal.id}}/edit">Edit {{chosen_animal.name}}</a>
-                    </button>
+                    <section class="more-info-button-section">
 
+                        <button class="info-button">
+                            <a href="/animals/{{chosen_animal.id}}/edit">Edit {{chosen_animal.name}}</a>
+                        </button>
+                        <button class="info-button">
+                            <a href="/animals/{{chosen_animal.id}}/delete">Delete {{chosen_animal.name}}</a>
+
+                        </button>
+                    </section>
                 </section>
             </article>
             {% endif %}

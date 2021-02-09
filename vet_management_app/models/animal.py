@@ -7,3 +7,7 @@ class Animal:
         self.treatment_notes = treatment_notes
         self.vet = vet
         self.id = id
+        self.archived = False
+
+    def update_archived(self, new_archived):
+        self.archived = new_archived

@@ -4,8 +4,8 @@ import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
 
 def save_new_animal(animal):
-    sql = "INSERT INTO animals(name, date_of_birth, animal_type, owner_id,  treatment_notes, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [animal.name, animal.date_of_birth, animal.animal_type, animal.owner.id, animal.treatment_notes, animal.vet.id]
+    sql = "INSERT INTO animals(name, date_of_birth, animal_type, owner_id,  treatment_notes, vet_id, archived) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [animal.name, animal.date_of_birth, animal.animal_type, animal.owner.id, animal.treatment_notes, animal.vet.id, animal.archived]
     results = run_sql(sql, values)
     animal.id = results[0]["id"]
     return animal
@@ -21,7 +21,7 @@ def select_animal(id):
         return animal
 
 def select_all_animals():
-    results = run_sql("SELECT * FROM animals")
+    results = run_sql("SELECT * FROM animals WHERE archived=%s", ["FALSE"])
     animals = []
     for result in results:
         owner = owner_repository.select_owner(result["owner_id"])
@@ -35,5 +35,10 @@ def update_animal(animal):
     values = [animal.name, animal.date_of_birth, animal.animal_type, animal.owner.id, animal.vet.id, animal.treatment_notes, animal.id]
     run_sql(sql, values)
 
-    
-
+def archive_animal(animal):
+    animal.update_archived(True)
+    sql = "UPDATE vets SET archived = %s WHERE id=%s"
+    print("repo "+str(animal.archived))
+    print("repo "+str(animal.id))
+    values = [animal.archived, animal.id]
+    run_sql(sql, values)

@@ -70,3 +70,11 @@ def more_animal_info(id):
     animals = sorted(animals, key=lambda animal:animal.name)
     chosen_animal = animal_repository.select_animal(id)
     return render_template('animals/index.html', chosen_animal=chosen_animal, more_info=True, animals=animals)
+
+@animal_blueprint.route('/animals/<id>/delete')
+def archive_animal(id):
+    animal = animal_repository.select_animal(id)
+    print(animal.archived)
+    animal_repository.archive_animal(animal)
+    print(animal.archived)
+    return redirect('/animals')

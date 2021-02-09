@@ -48,7 +48,7 @@ def get_all_animals(owner):
 def archive_owner(owner):
     sql = "UPDATE owners SET archived = %s WHERE id=%s"
     owner.update_archived(True)
-    value = [owner.archived, owner.id]
-    result = run_sql(sql, value)
+    values = [owner.archived, owner.id]
+    run_sql(sql, values)
 
 
