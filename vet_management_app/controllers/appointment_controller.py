@@ -12,4 +12,15 @@ appointment_blueprint = Blueprint("appointment", __name__)
 
 @appointment_blueprint.route('/appointments')
 def index():
-    return render_template('appointments/index.html')
+    appointments = appointment_repository.select_all_appointments()
+    return render_template('appointments/index.html', appointments=appointments)
+
+
+@appointment_blueprint.route('/appointments/new')
+def new_appointment_page():
+    return render_template('appointments/new.html')
+
+@appointment_blueprint.route('/appointments/new/<id>')
+def new_appointment_page(id):
+    animal = animal_repository.select_animal(id)
+    return render_template('appointments/new.html', animal=animal)

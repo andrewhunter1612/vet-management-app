@@ -37,8 +37,6 @@ def update_animal(animal):
 
 def archive_animal(animal):
     animal.update_archived(True)
-    sql = "UPDATE vets SET archived = %s WHERE id=%s"
-    print("repo "+str(animal.archived))
-    print("repo "+str(animal.id))
+    sql = "UPDATE animals SET archived = %s WHERE id=%s"
     values = [animal.archived, animal.id]
     run_sql(sql, values)

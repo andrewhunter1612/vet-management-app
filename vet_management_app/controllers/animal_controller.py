@@ -74,7 +74,5 @@ def more_animal_info(id):
 @animal_blueprint.route('/animals/<id>/delete')
 def archive_animal(id):
     animal = animal_repository.select_animal(id)
-    print(animal.archived)
     animal_repository.archive_animal(animal)
-    print(animal.archived)
     return redirect('/animals')
