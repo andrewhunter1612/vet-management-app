@@ -281,12 +281,34 @@ body{
 /* appointments */
 #new-appointment{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    background-color: tomato;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+#new-appointment>label{
+    margin-bottom: 20px;
+}
+
+#new-appointment>input{
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#new-appointment>select{
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-style: none;
 }
 
 #new-appointment-div{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #submit-new-appointment{
