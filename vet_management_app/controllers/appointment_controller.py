@@ -18,9 +18,23 @@ def index():
 
 @appointment_blueprint.route('/appointments/new')
 def new_appointment_page():
-    return render_template('appointments/new.html')
+    vets = vet_repository.select_all_vets()
+    animals = animal_repository.select_all_animals()
+    return render_template('appointments/new.html', animals=animals, vets=vets)
 
 @appointment_blueprint.route('/appointments/new/<id>')
-def new_appointment_page(id):
+def new_animal_appointment_page(id):
     animal = animal_repository.select_animal(id)
     return render_template('appointments/new.html', animal=animal)
+
+@appointment_blueprint.route('/appointments/new', methods=["POST"])
+def add_new_appointment():
+    date = request.form["date"]
+    time = request.form["time"]
+    notes = request.form["notes"]
+    vet = vet_repository.select_vet(request.form["vet_id"])
+    animal = animal_repository.select_animal(request.form["animal_id"])
+    appointment = Appointment(date, time, vet, animal, notes)
+    appointment_repository.save_new_appointment(appointment)
+    return redirect('/appointments')
+

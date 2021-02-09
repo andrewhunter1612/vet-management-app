@@ -1,10 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <form action="/appointments/new" method="POST">
-        
+<div id="new-appointment-div">
+    <form id="new-appointment" action="/appointments/new" method="POST">
+        <label for="date">Enter Date: </label>
+        <input type="date" name="date" id="date">
 
-        <input type="submit" value="Add new owner">
+        <label for="time">Enter time: </label>
+        <input type="time" name="time" id="time" >
+
+
+        <label for="vet_id">Choose vet: </label>
+        <select name="vet_id" id="vet_id">
+            <option value="" disabled>Choose vet</option>
+            {% for vet in vets %}
+                <option value={{vet.id}}>{{vet.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="animal_id">Choose animal: </label>
+        <select name="animal_id" id="animal_id">
+            {% for animal in animals %}
+                <option value={{animal.id}}>{{animal.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="notes">Additional Notes: </label>
+        <input type="text" name="notes" id="notes">
+
+        <input id="submit-new-appointment" type="submit" value="Add new appointment">
     </form>
-
+</div>
 {% endblock %}

@@ -277,3 +277,18 @@ body{
     margin-bottom: 5px;
 }
 
+
+/* appointments */
+#new-appointment{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#new-appointment-div{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#submit-new-appointment{
+    margin: 10px;
+}
