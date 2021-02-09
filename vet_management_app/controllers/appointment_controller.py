@@ -14,6 +14,13 @@ appointment_blueprint = Blueprint("appointment", __name__)
 def index():
     appointments = appointment_repository.select_all_appointments()
     appointments = sorted(appointments, key=lambda appointment:appointment.date)
+    
+    for appointment in appointments:
+        dob = appointment.date.split('-')
+        if len(dob[1]) <2:
+            dob[1] = "0" + dob[1]
+        appointment.date = dob[2]+"/"+dob[1]+"/"+dob[0]
+    
     return render_template('appointments/index.html', appointments=appointments)
 
 

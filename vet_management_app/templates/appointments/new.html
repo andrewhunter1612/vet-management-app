@@ -21,7 +21,7 @@
         {% if chosen %}
         <label for="animal_id">Choose animal: </label>
         <select name="animal_id" id="animal_id" required>
-            <option value="" selected>{{chosen_animal.name}}</option>
+            <option value={{chosen_animal.id}} selected>{{chosen_animal.name}}</option>
             {% for animal in animals %}
                 {% if chosen_animal.id != animal.id %}
                     <option value={{animal.id}}>{{animal.name}}</option>
