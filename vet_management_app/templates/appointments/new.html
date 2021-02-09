@@ -18,12 +18,14 @@
             {% endfor %}
         </select>
 
-        {% if chosen_animal %}
+        {% if chosen %}
         <label for="animal_id">Choose animal: </label>
         <select name="animal_id" id="animal_id" required>
-            <option value="" selected>{{chosen_animal}}</option>
+            <option value="" selected>{{chosen_animal.name}}</option>
             {% for animal in animals %}
-                <option value={{animal.id}}>{{animal.name}}</option>
+                {% if chosen_animal.id != animal.id %}
+                    <option value={{animal.id}}>{{animal.name}}</option>
+                {% endif %}
             {% endfor %}
         </select>
         {% else %}

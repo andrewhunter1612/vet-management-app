@@ -21,12 +21,14 @@ def index():
 def new_appointment_page():
     vets = vet_repository.select_all_vets()
     animals = animal_repository.select_all_animals()
-    return render_template('appointments/new.html', animals=animals, vets=vets)
+    return render_template('appointments/new.html', chosen=False, animals=animals, vets=vets)
 
 @appointment_blueprint.route('/appointments/new/<id>')
 def new_animal_appointment_page(id):
     animal = animal_repository.select_animal(id)
-    return render_template('appointments/new.html', animal=animal)
+    vets = vet_repository.select_all_vets()
+    animals = animal_repository.select_all_animals()
+    return render_template('appointments/new.html', chosen=True, chosen_animal=animal, animal=animal, animals=animals, vets=vets)
 
 @appointment_blueprint.route('/appointments/new', methods=["POST"])
 def add_new_appointment():
