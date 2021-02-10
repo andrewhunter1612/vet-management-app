@@ -27,7 +27,7 @@ def select_all_appointments():
 def select_appointment(id):
     sql = "SELECT * FROM appointments WHERE id=%s"
     value = [id]
-    result = run_sql(run_sql, value)[0]
+    result = run_sql(sql, value)[0]
     if result is not None:
         vet = vet_repository.select_vet(result["vet_id"])
         animal = animal_repository.select_animal(result["animal_id"])
