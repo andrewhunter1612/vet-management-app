@@ -32,6 +32,7 @@ def select_appointment(id):
         vet = vet_repository.select_vet(result["vet_id"])
         animal = animal_repository.select_animal(result["animal_id"])
         appointment = Appointment(result["date"], result["time"], vet, animal, result["additional_notes"], result["id"])
+        return appointment
 
 def delete_appointment(id):
     sql = "DELETE FROM appointments WHERE id=%s"

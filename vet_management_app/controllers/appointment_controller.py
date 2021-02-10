@@ -72,5 +72,18 @@ def add_new_appointment():
 @appointment_blueprint.route('/appointments/<id>/edit')
 def edit_appointment_page(id):
     appointment = appointment_repository.select_appointment(id)
+    print(appointment)
+    vets = vet_repository.select_all_vets()
+    animals = animal_repository.select_all_animals()
+    return render_template('appointments/edit.html', vets=vets, animals=animals, appointment=appointment)
 
-    return render_template('appointments/edit.html', appointment=appointment)
+@appointment_blueprint.route('/appointments/<id>/edit', methods=["POST"])
+def edit_appointment(id):
+    date = request.form["date"]
+    time = request.form["time"]
+    notes = request.form["notes"]
+    vet = vet_repository.select_vet(request.form["vet_id"])
+    animal = animal_repository.select_animal(request.form["animal_id"])
+    appointment = Appointment(date, time, vet, animal, notes, id)
+    appointment_repository.update_appointment(appointment)
+    return redirect('/appointments')

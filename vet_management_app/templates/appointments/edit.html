@@ -2,45 +2,36 @@
 {% block content %}
 
 <div class="new-appointment-div">
-    <form class="new-appointment" action="/appointments/new" method="POST">
+    <form class="new-appointment" action="/appointments/{{appointment.id}}/edit" method="POST">
         <label for="date">Enter Date: </label>
-        <input type="date" name="date" id="date" required>
+        <input type="date" name="date" id="date" value="{{appointment.date}}" required>
 
         <label for="time">Enter time: </label>
-        <input type="time" name="time" id="time" required>
-
+        <input type="time" name="time" id="time" value={{appointment.time}} required>
 
         <label for="vet_id">Choose vet: </label>
         <select name="vet_id" id="vet_id" required>
-            <option value="" selected disabled>Choose vet</option>
+            <option value={{appointment.vet.id}} selected="selected">{{appointment.vet.name}}</option>
             {% for vet in vets %}
-                <option value={{vet.id}}>{{vet.name}}</option>
+                {% if appointment.vet.id != vet.id %}
+                    <option value={{vet.id}}>{{vet.name}}</option>
+                {% endif %}
             {% endfor %}
         </select>
 
-        {% if chosen %}
         <label for="animal_id">Choose animal: </label>
         <select name="animal_id" id="animal_id" required>
-            <option value={{chosen_animal.id}} selected>{{chosen_animal.name}}</option>
+            <option value={{appointment.animal.id}} selected>{{appointment.animal.name}}</option>
             {% for animal in animals %}
-                {% if chosen_animal.id != animal.id %}
+                {% if appointment.animal.id != animal.id %}
                     <option value={{animal.id}}>{{animal.name}}</option>
                 {% endif %}
             {% endfor %}
         </select>
-        {% else %}
-        <label for="animal_id">Choose animal: </label>
-        <select name="animal_id" id="animal_id" required>
-            <option value="" selected disabled>Choose animal</option>
-            {% for animal in animals %}
-                <option value={{animal.id}}>{{animal.name}}</option>
-            {% endfor %}
-        </select>
-        {% endif %}
        
 
         <label for="notes">Additional Notes: </label>
-        <input type="text" name="notes" id="notes">
+        <input type="text" value={{appointment.additional_notes}} name="notes" id="notes">
 
         <input class="info-button" type="submit" value="Update appointment">
     </form>
