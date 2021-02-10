@@ -25,3 +25,4 @@ Create a database called 'vet_management'.
 Populate the database by running 'python3 console.py'
 In the terminal, execute 'flask run'
 
+
