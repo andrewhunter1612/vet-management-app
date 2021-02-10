@@ -1,35 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>New Animal</h2>
-
-    <form action="/animals/new", method="POST">
+<div class="new-appointment-div">
+    <form class="new-appointment" action="/animals/new", method="POST">
         <label for="name">Enter name</label>
-        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <input type="text" name="name" id="name" placeholder="Name">
 
         <label for="dob">Enter date of birth</label>
-        <input type="date" name="dob" id="dob"><br>
+        <input type="date" name="dob" id="dob">
 
 
         <label for="animal_type">Enter animal type</label>
-        <input type="text" name="animal_type" id="animal_type" placeholder="Animal type"><br>
+        <input type="text" name="animal_type" id="animal_type" placeholder="Animal type">
 
         <label for="notes">Enter treatment notes</label>
-        <input type="text" name="notes" id="notes" placeholder="Treament notes"><br>
+        <input type="text" name="notes" id="notes" placeholder="Treament notes">
 
         <label for="vet_id">Choose vet</label>
         <select name="vet_id" id="vet_id">
             {% for vet in vets %}
                 <option value={{vet.id}}>{{vet.name}}</option>
             {% endfor %}   
-        </select><br>
+        </select>
 
         <label for="owner_id">Choose owner</label>
         <select name="owner_id" id="owner_id">
             {% for owner in owners %}
                 <option value={{owner.id}}>{{owner.name}}</option>
             {% endfor %}    
-        </select><br>
-        <input type="submit" value="Add animal">
+        </select>
+        <input class="info-button" type="submit" value="Add animal">
     </form>
-
+</div>
 {% endblock content %}  

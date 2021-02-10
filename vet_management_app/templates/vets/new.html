@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>new vet page</h1>
-
-    <form action="/vets/new" method="POST">
+<div class="new-appointment-div">
+    <form class="new-appointment" action="/vets/new" method="POST">
         <label for="name">Vet name</label>
         <input type="text" name="name" id="name" placeholder="Name">
-        <br>
-        <input type="submit" value="Add new vet">
-    </form>
 
+        <input class="info-button" type="submit" value="Add new vet">
+    </form>
+</div>
 {% endblock %}

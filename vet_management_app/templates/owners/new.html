@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <form action="/owners/new" method="POST">
+<div class="new-appointment-div">
+    <form class="new-appointment" action="/owners/new" method="POST">
         <label for="name">Enter name</label>
         <input type="text" name="name" id="name" placeholder="Name">
-        <br>
 
         <label for="phone">Enter phone number</label>
         <input type="text" name="phone" id="phone" placeholder="Phone Number">
-        <br>
 
         <label for="address">Enter address</label>
         <input type="text" name="address" id="address" placeholder="Address">
-        <br>
 
-        <input type="submit" value="Add new owner">
+        <input class="info-button" type="submit" value="Add new owner">
     </form>
+</div>
 
 {% endblock %}

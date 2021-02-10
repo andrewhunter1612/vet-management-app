@@ -1,5 +1,5 @@
 body{
-    background-color: skyblue;
+    background-color: rgb(209, 245, 255);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-y: scroll;
 }
@@ -9,7 +9,7 @@ body{
 #main-header {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    background-color: blanchedalmond;
+    background-color: rgb(188, 240, 255);
     margin: -10px;
     padding: 15px;
     margin-bottom: 20px;
@@ -31,9 +31,14 @@ body{
 }
 
 #main-footer{
-    background-color: blueviolet;
+    background-color: rgb(175, 238, 255);
+    margin: -10px;
     margin-top: 30px;
     height: 100px;
+}
+
+#main-footer>p{
+    padding: 20px;
 }
 
 
@@ -52,16 +57,16 @@ body{
 }
 
 .highlighted-button{
-    background-color: red;
+    background-color: rgb(2, 199, 254);
 }
 
 .unhighlighted-button{
-    background-color: greenyellow;
+    background-color: rgb(255, 255, 255);
 }
 
 #main-header > nav > ul >li>a{
     text-decoration: none;
-    color: purple;
+    color: rgb(9, 90, 113);
 }
 
 
@@ -76,7 +81,7 @@ body{
 }
 
 .clickable-button{
-    background-color: pink;
+    background-color: rgb(83, 217, 254);
     width: 200px;
     height: 200px;
     font-size: 30px;
@@ -287,8 +292,9 @@ body{
 }
 
 
+
 /* appointments */
-#new-appointment{
+.new-appointment{
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: tomato;
@@ -297,23 +303,24 @@ body{
     border-radius: 10px;
 }
 
-#new-appointment>label{
-    margin-bottom: 20px;
+.new-appointment>label{
+    margin: 10px 20px;
+    
 }
 
-#new-appointment>input{
+.new-appointment>input{
     margin-bottom: 5px;
     border-radius: 10px;
     border-style: none;
 }
 
-#new-appointment>select{
+.new-appointment>select{
     margin-bottom: 5px;
     border-radius: 10px;
     border-style: none;
 }
 
-#new-appointment-div{
+.new-appointment-div{
     display: flex;
     flex-wrap: wrap;
 }
