@@ -69,3 +69,8 @@ def add_new_appointment():
     appointment_repository.save_new_appointment(appointment)
     return redirect('/appointments')
 
+@appointment_blueprint.route('/appointments/<id>/edit')
+def edit_appointment_page(id):
+    appointment = appointment_repository.select_appointment(id)
+
+    return render_template('appointments/edit.html', appointment=appointment)

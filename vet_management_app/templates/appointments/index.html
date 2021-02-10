@@ -38,7 +38,7 @@
         <p><b>Vet:</b> {{appointment.vet.name}}</p>
         <p><b>Animal:</b> {{appointment.animal.name}}</p>
         <p><b>Notes:</b> {{appointment.additional_notes}}</p>
-        <button class="info-button">Update Appointment</button>
+        <button class="info-button"><a href="/appointments/{{appointment.id}}/edit">Update Appointment</a></button>
     </div>
     {% endfor %}
     
