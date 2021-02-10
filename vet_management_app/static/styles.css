@@ -5,7 +5,6 @@ body{
 }
 
 
-
 #main-header {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -13,6 +12,10 @@ body{
     margin: -10px;
     padding: 15px;
     margin-bottom: 20px;
+}
+
+#main-header>h1{
+    color: darkblue;
 }
 
 #home-page-main {
@@ -66,13 +69,13 @@ body{
 
 #main-header > nav > ul >li>a{
     text-decoration: none;
-    color: rgb(9, 90, 113);
+    color:darkblue;
 }
 
 
 /* buttons */
 .button-new {
-    background-color: khaki;
+    background-color: rgb(83, 217, 254);
     height: 50px;
     width: 200px;
     font-size: large;
@@ -90,11 +93,12 @@ body{
 
 .button-new > a{
     text-decoration: none;
-    color: lightcoral;
+    color: darkblue;
 }
 
 .clickable-button >a{
     text-decoration: none;
+    color: darkblue;
 }
 
 
@@ -110,7 +114,7 @@ body{
 
 .info-button > a{
     text-decoration: none;
-    color: aliceblue;
+    color: darkblue;
 }
 
 /* lists */
@@ -125,14 +129,14 @@ body{
 .list-item{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     border-radius: 15px;
     margin-bottom: 5px;
     margin-right: 5px;
 }
 
 .list-item > p{
-    margin: px;
+    margin: 4px;
     padding: 4px;
 }
 
@@ -149,7 +153,7 @@ body{
     align-items: center;
     justify-content: center;
     font-size: larger;
-    background-color: red;
+    background-color: rgb(83, 217, 254);
     margin: 10px 20px;
     border-radius: 10px;
     padding: 4px;
@@ -157,7 +161,7 @@ body{
 
 .list-div>a{
     text-decoration: none;
-    color: black;
+    color: darkblue;
 }
 
 
@@ -177,7 +181,7 @@ body{
 /* more info */
 
 .more-info-article{
-    background-color: peru;
+    background-color: rgb(0, 200, 255);
     padding: 12px;
     border-radius: 10px;
     margin-top: 10px;
@@ -204,7 +208,7 @@ body{
 }
 
 .info-button {
-    background-color: brown;
+    background-color: rgb(83, 217, 254);
     border-radius: 5px;
     color: aliceblue;
     font-size: large;
