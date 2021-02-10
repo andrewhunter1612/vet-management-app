@@ -63,8 +63,8 @@
                     <h2>Edit {{chosen_vet.name}}</h2>
                     <form action="/vets/{{chosen_vet.id}}/edit" method="POST" class="edit-form">
                         <label for="name">Enter name</label>
-                        <input type="text" name="name" id="name" placeholder="Name" value={{chosen_vet.name}}>
-                        <br><br>
+                        <input type="text" name="name" id="name" placeholder="Name" value="{{chosen_vet.name}}">
+                        
                 
                         <input type="submit" value="Update {{chosen_vet.name}}" class="info-button">
                     </form>

@@ -26,7 +26,6 @@ def add_new_vet():
 def edit_vet_page(id):
     vets = vet_repository.select_all_vets()
     vets = sorted(vets, key=lambda vet:vet.name)
-    # vet = vet_repository.select_vet(id)
     chosen_vet = vet_repository.select_vet(id)
     return render_template('vets/index.html',nav_button_highlighted=True, vets=vets, chosen_vet=chosen_vet, more_info=True, edit_info=True)
 
