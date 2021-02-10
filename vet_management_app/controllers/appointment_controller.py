@@ -32,9 +32,14 @@ def filter_index():
     animal_id = request.form["animal_id_a"]
 
     appointments = appointment_repository.filter_appointments(date, vet_id, animal_id)
-    print(appointments)
-
     appointments = sorted(appointments, key=lambda appointment:appointment.date)
+    
+    for appointment in appointments:
+        dob = appointment.date.split('-')
+        if len(dob[1]) <2:
+            dob[1] = "0" + dob[1]
+        appointment.date = dob[2]+"/"+dob[1]+"/"+dob[0]
+    
     vets = vet_repository.select_all_vets()
     animals = animal_repository.select_all_animals()
 
