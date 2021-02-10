@@ -25,6 +25,13 @@ def new_animal_page():
 def add_new_animal():
     name = request.form["name"].capitalize()
     dob = request.form["dob"]
+
+    dob = dob.split('-')
+    if len(dob)==3:
+        if len(dob[1]) <2:
+            dob[1] = "0" + dob[1]
+        dob = dob[2]+"/"+dob[1]+"/"+dob[0]
+
     animal_type = request.form["animal_type"].capitalize()
     treatment_notes = request.form["notes"].capitalize()
     owner = owner_repository.select_owner(request.form["owner_id"])
@@ -40,12 +47,6 @@ def edit_animal_page(id):
     chosen_animal = animal_repository.select_animal(id)
     animals = animal_repository.select_all_animals()
     animals = sorted(animals, key=lambda animal:animal.name)
-
-    dob = chosen_animal.date_of_birth.split('/')
-    if len(dob)==3:
-        if len(dob[1]) <2:
-            dob[1] = "0" + dob[1]
-        dob = dob[2]+"-"+dob[1]+"-"+dob[0]
 
     return render_template('animals/index.html', dob=dob, owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
 
@@ -66,6 +67,7 @@ def more_animal_info(id):
     animals = animal_repository.select_all_animals()
     animals = sorted(animals, key=lambda animal:animal.name)
     chosen_animal = animal_repository.select_animal(id)
+
     return render_template('animals/index.html', chosen_animal=chosen_animal, more_info=True, animals=animals)
 
 @animal_blueprint.route('/animals/<id>/delete')
