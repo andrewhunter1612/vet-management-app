@@ -9,7 +9,7 @@ vet_blueprint = Blueprint("vet", __name__)
 def vets_page():
     vets = vet_repository.select_all_vets()
     vets = sorted(vets, key=lambda vet:vet.name)
-    return render_template('/vets/index.html', more_info=False, vets=vets)
+    return render_template('/vets/index.html',nav_button_highlighted=True, more_info=False, vets=vets)
 
 @vet_blueprint.route('/vets/new')
 def add_new_vet_page():
@@ -28,7 +28,7 @@ def edit_vet_page(id):
     vets = sorted(vets, key=lambda vet:vet.name)
     # vet = vet_repository.select_vet(id)
     chosen_vet = vet_repository.select_vet(id)
-    return render_template('vets/index.html', vets=vets, chosen_vet=chosen_vet, more_info=True, edit_info=True)
+    return render_template('vets/index.html',nav_button_highlighted=True, vets=vets, chosen_vet=chosen_vet, more_info=True, edit_info=True)
 
 @vet_blueprint.route('/vets/<id>/edit', methods=["POST"])
 def edit_vet(id):
@@ -42,7 +42,7 @@ def more_info(id):
     vets = vet_repository.select_all_vets()
     vets = sorted(vets, key=lambda vet:vet.name)
     chosen_vet = vet_repository.select_vet(id)
-    return render_template('/vets/index.html', more_info=True, chosen_vet=chosen_vet, vets=vets)
+    return render_template('/vets/index.html',nav_button_highlighted=True,  more_info=True, chosen_vet=chosen_vet, vets=vets)
 
 @vet_blueprint.route('/vets/<id>/delete')
 def delete_vet(id):

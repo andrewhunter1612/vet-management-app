@@ -44,11 +44,12 @@ def update_appointment(appointment):
     result = run_sql(sql, values)
 
 def filter_appointments(date, vet_id, animal_id):
-    sql = "SELECT * FROM appointments WHERE date = %s OR date=%s AND vet_id = %s OR vet_id=%s AND animal_id = %s OR animal_id=%s"
-    values = [date, "",vet_id, "", animal_id, ""]
-    results = run_sql(sql, values)
+    sql = "SELECT * FROM appointments"
+    results = run_sql(sql)
     appointments = []
     for result in results:
+        if (vet_id != "" and int(vet_id) != result["vet_id"]) or (animal_id != "" and int(animal_id) != result["animal_id"]) or (date != "" and date != result["date"]):
+            continue
         vet = vet_repository.select_vet(result["vet_id"])
         animal = animal_repository.select_animal(result["animal_id"])
         appointment = Appointment(result["date"], result["time"], vet, animal, result["additional_notes"], result["id"])

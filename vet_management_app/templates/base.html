@@ -11,34 +11,31 @@
         <h1>Vet Shop Boys</h1>
         <nav>
             <ul>
-                
-            
-                {% if url_for(request.endpoint) == "/" %}
+                {% if request.path.split('/')[1] == "" %}
                     <li class="highlighted-button"><a href="/">Home</a></li>
                 {% else %}
                     <li class="unhighlighted-button"><a href="/">Home</a></li>
                 {% endif %}
 
-                {% if url_for(request.endpoint) == "/vets" %}
+                {% if request.path.split('/')[1] == "vets" %}
                     <li class="highlighted-button"><a href="/vets">Vets</a></li>
                 {% else %}
                     <li class="unhighlighted-button"><a href="/vets">Vets</a></li>
                 {% endif %}
-                
 
-                {% if url_for(request.endpoint) == "/animals" %}
+                {% if request.path.split('/')[1] == "animals" %}
                     <li class="highlighted-button"><a href="/animals">Animals</a></li>
                 {% else %}
                     <li class="unhighlighted-button"><a href="/animals">Animals</a></li>
                 {% endif %}
 
-                {% if url_for(request.endpoint) == "/owners" %}
+                {% if request.path.split('/')[1] == "owners" %}
                     <li class="highlighted-button"><a href="/owners">Owners</a></li>
                 {% else %}
                     <li class="unhighlighted-button"><a href="/owners">Owners</a></li>
                 {% endif %}
 
-                {% if url_for(request.endpoint) == "/appointments" %}
+                {% if request.path.split('/')[1] == "appointments" %}
                     <li class="highlighted-button"><a href="/appointments">Appointments</a></li>
                 {% else %}
                     <li class="unhighlighted-button"><a href="/appointments">Appointments</a></li>
