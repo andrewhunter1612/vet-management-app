@@ -30,6 +30,9 @@ def filter_index():
     date = request.form["date"]
     vet_id = request.form["vet_id_a"]
     animal_id = request.form["animal_id_a"]
+    print("date"+date)
+    print("vet"+vet_id)
+    print("animal"+animal_id)
 
     appointments = appointment_repository.filter_appointments(date, vet_id, animal_id)
     appointments = sorted(appointments, key=lambda appointment:appointment.date)

@@ -26,11 +26,13 @@ def add_new_animal():
     name = request.form["name"].capitalize()
     dob = request.form["dob"]
 
+    dob = "2021-02-04"
     dob = dob.split('-')
     if len(dob)==3:
         if len(dob[1]) <2:
             dob[1] = "0" + dob[1]
         dob = dob[2]+"/"+dob[1]+"/"+dob[0]
+    
 
     animal_type = request.form["animal_type"].capitalize()
     treatment_notes = request.form["notes"].capitalize()
@@ -39,7 +41,7 @@ def add_new_animal():
     new_animal = Animal(name, dob, animal_type, owner, treatment_notes, vet)
     animal_repository.save_new_animal(new_animal)
     return redirect('/animals')
-
+                                  
 @animal_blueprint.route('/animals/<id>/edit')
 def edit_animal_page(id):
     vets = vet_repository.select_all_vets()
@@ -48,7 +50,7 @@ def edit_animal_page(id):
     animals = animal_repository.select_all_animals()
     animals = sorted(animals, key=lambda animal:animal.name)
 
-    return render_template('animals/index.html', dob=dob, owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
+    return render_template('animals/index.html', owners=owners, vets=vets, chosen_animal=chosen_animal, animals=animals, edit_info=True, more_info=True)
 
 @animal_blueprint.route('/animals/<id>/edit', methods=["POST"])
 def edit_animal(id):
@@ -75,3 +77,5 @@ def archive_animal(id):
     animal = animal_repository.select_animal(id)
     animal_repository.archive_animal(animal)
     return redirect('/animals')
+
+    

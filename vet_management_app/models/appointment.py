@@ -6,3 +6,5 @@ class Appointment:
         self.animal = animal
         self.additional_notes = additional_notes
         self.id = id
+
+    
